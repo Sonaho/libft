@@ -90,7 +90,15 @@ void test_memset()
      printf("Después bzero():  %s \n", str);
 
 }
-
+void test_memchr()
+{
+   char cadena[] = "Erase una vez...";
+   char *puntero; 
+ 
+   puntero = (char *)ft_memchr( cadena, '.', 10 );
+   printf( "%s\n", cadena); 
+   printf( "%s\n", puntero ); 	
+}
 void test_strncmp()
 {
 	char str1[15];
@@ -134,7 +142,8 @@ int main()
 	test_tolower(); 
 	test_strchr();
 	test_strrchr();*/
-	test_memset();
+	//test_memset();
 	//test_strncmp();
+	test_memchr();
 }
 

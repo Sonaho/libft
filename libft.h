@@ -17,6 +17,7 @@ char *ft_strchr(char *s, int c);
 char *ft_strrchr(char *s, int c);
 
 void *ft_memset(void *s, int c, unsigned int n);
+void *ft_memchr(void *s, int c, unsigned int n);
 void ft_bzero(void *s, unsigned int n);
 
 int ft_strncmp(char *s1, char *s2, unsigned int n);
