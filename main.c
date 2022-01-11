@@ -99,6 +99,15 @@ void test_memchr()
    printf( "%s\n", cadena); 
    printf( "%s\n", puntero ); 	
 }
+void test_memcpy()
+{
+	char src[50] = "42Barcelona es la respuesta";
+	char dest[50];
+	strcpy(dest,"Heloooo, how are you!!");
+	printf("Antes memcpy dest = %s\n", dest);
+	ft_memcpy(dest, src, 50);
+	printf("Despues memcpy dest = %s\n", dest);
+}
 void test_strncmp()
 {
 	char str1[15];
@@ -144,6 +153,7 @@ int main()
 	test_strrchr();*/
 	//test_memset();
 	//test_strncmp();
-	test_memchr();
+	//test_memchr();
+	test_memcpy();
 }
 
