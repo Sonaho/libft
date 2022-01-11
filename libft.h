@@ -15,12 +15,14 @@ int ft_isupper(int c);
 
 char *ft_strchr(char *s, int c);
 char *ft_strrchr(char *s, int c);
+int ft_strncmp(char *s1, char *s2, unsigned int n);
 
 void *ft_memset(void *s, int c, unsigned int n);
 void *ft_memchr(void *s, int c, unsigned int n);
 void *ft_memcpy(void *dest, void *src, unsigned int n);
+int ft_memcmp(void *s1, void *s2, unsigned int n);
 void ft_bzero(void *s, unsigned int n);
 
-int ft_strncmp(char *s1, char *s2, unsigned int n);
+
 
 #endif

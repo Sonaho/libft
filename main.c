@@ -74,7 +74,27 @@ void test_strrchr()
 
 	printf("String desues de la ultima | %c | es - | %s |\n", ch, ret);
 }
+void test_strncmp()
+{
+	char str1[15];
+	char str2[15];
+	int ret;
 
+	strcpy(str1, "ABCDEF");
+	strcpy(str2, "ABCDef");
+
+	ret = ft_strncmp(str1, str2, 4);
+
+	if(ret < 0) {
+		printf("str1 is less than str2");
+	} else if(ret > 0) {
+		printf("str2 is less than str1");
+	} else {
+		printf("str1 is equal to str2");
+	}
+   
+	printf("\nValue returned by strncmp() is: %d \n" , ret);
+}
 void test_memset()
 {
 	char str[50] = "42Barcelona es la respuesta a toda pregunta Geek";
@@ -108,27 +128,24 @@ void test_memcpy()
 	ft_memcpy(dest, src, 50);
 	printf("Despues memcpy dest = %s\n", dest);
 }
-void test_strncmp()
+void test_memcmp()
 {
-	char str1[15];
-	char str2[15];
-	int ret;
+   char str1[15];
+   char str2[15];
+   int ret;
 
-	strcpy(str1, "ABCDEF");
-	strcpy(str2, "ABCDef");
+   ft_memcpy(str1, "abcdef", 6);
+   ft_memcpy(str2, "ABCDEF", 6);
 
-	ret = ft_strncmp(str1, str2, 4);
+   ret = ft_memcmp(str1, str2, 5);
 
-	if(ret < 0) {
-		printf("str1 is less than str2");
-	} else if(ret > 0) {
-		printf("str2 is less than str1");
-	} else {
-		printf("str1 is equal to str2");
-	}
-   
-	printf("\nValue returned by strncmp() is: %d \n" , ret);
-}
+   if(ret > 0) 
+      printf("str2 is less than str1: %d \n", ret);
+   else if(ret < 0) 
+      printf("str1 is less than str2: %d \n", ret);
+   else 
+      printf("str1 is equal to str2: %d \n", ret);
+  }
 
 int main()
 {
@@ -154,6 +171,7 @@ int main()
 	//test_memset();
 	//test_strncmp();
 	//test_memchr();
-	test_memcpy();
+	//test_memcpy();
+	test_memcmp();
 }
 
