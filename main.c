@@ -145,7 +145,21 @@ void test_memcmp()
       printf("str1 is less than str2: %d \n", ret);
    else 
       printf("str1 is equal to str2: %d \n", ret);
-  }
+}
+void test_memmove()
+{
+	char dest[] = "Barcelona molona";
+	char det[] = "Barcelona molona";
+	char src[]  = "newstring";
+	int x = 5;
+
+	printf("Before memmove dest = %s, src = %s\n", dest, src);
+	memmove(dest, src, x);
+	printf("After memmove dest = %s, src = %s\n", dest, src);
+	ft_memmove(det, src, x);
+	printf("After ft_memmove dest = %s, src = %s\n", det, src);
+	
+}
 
 int main()
 {
@@ -172,6 +186,7 @@ int main()
 	//test_strncmp();
 	//test_memchr();
 	//test_memcpy();
-	test_memcmp();
+	//test_memcmp();
+	test_memmove();
 }
 

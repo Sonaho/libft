@@ -20,6 +20,7 @@ int ft_strncmp(char *s1, char *s2, unsigned int n);
 void *ft_memset(void *s, int c, unsigned int n);
 void *ft_memchr(void *s, int c, unsigned int n);
 void *ft_memcpy(void *dest, void *src, unsigned int n);
+void *ft_memmove(void *dest, void *src, unsigned int n);
 int ft_memcmp(void *s1, void *s2, unsigned int n);
 void ft_bzero(void *s, unsigned int n);
 
