@@ -161,6 +161,36 @@ void test_memmove()
 	
 }
 
+void test_strnstr()
+{
+	char haystack[50] = "42Barcelona es la respuesta";
+	char needle[50] = "2B" ;
+	size_t i = 5;
+	char *ret;
+	char *ft_ret;
+
+	ret = strnstr(haystack, needle, i);
+	printf("El retorno de strnstr es: %s \n", ret);
+	ft_ret = ft_strnstr(haystack, needle, i);
+	printf("El retorno ft_strnstr es: %s \n", ft_ret);
+}
+
+void test_strlcpy()
+{
+	char src[50] = "42Barcelona es la respuesta";
+	char dest1[50];
+	char dest2[50];
+	size_t size = 0;
+	size_t ret;
+
+	ret = strlcpy(dest1, src, size);
+	ret = ft_strlcpy(dest2, src, size);
+
+	printf("Cadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest1, size, ret);	
+	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret);	
+
+}
+
 int main()
 {
 	/*printf("Test de ft_isalpha \n");
@@ -187,6 +217,9 @@ int main()
 	//test_memchr();
 	//test_memcpy();
 	//test_memcmp();
-	test_memmove();
+	//test_memmove();
+	test_strlcpy();
+	//test_strnstr();
+
 }
 
