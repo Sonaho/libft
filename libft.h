@@ -10,7 +10,7 @@ int	ft_isdigit (int c);
 int ft_isalnum (int c);
 int ft_isascii (int c);
 int ft_isprint(int c);
-int ft_strlen(char *s);
+int ft_strlen(const char *s);
 int ft_toupper(int c);
 int ft_tolower(int c);
 int ft_isupper(int c);
@@ -22,6 +22,7 @@ char *ft_strrchr(char *s, int c);
 char *ft_strnstr(const char *haystack, const char *needle, size_t len);
 int ft_strncmp(char *s1, char *s2, unsigned int n);
 size_t ft_strlcpy(char * restrict dst, const char * restrict src, size_t size);
+size_t ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
 
 
 void *ft_memset(void *s, int c, size_t n);

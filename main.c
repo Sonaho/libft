@@ -190,7 +190,22 @@ void test_strlcpy()
 	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret);	
 
 }
+void test_strlcat()
+{
+	char src[50] = "42Barcelona es la respuesta";
+	//char dest1[50] = "42Bi";
+	char dest2[50] = "42Bi";
+	size_t size = 60;
+	//size_t ret;
+	size_t ret2;
 
+	//ret = strlcat(dest1, src, size);
+	ret2 = ft_strlcat(dest2, src, size);
+
+	//printf("Cadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest1, size, ret);	
+	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret2);	
+
+}
 int main()
 {
 	/*printf("Test de ft_isalpha \n");
@@ -218,8 +233,9 @@ int main()
 	//test_memcpy();
 	//test_memcmp();
 	//test_memmove();
-	test_strlcpy();
+	//test_strlcpy();
 	//test_strnstr();
+	test_strlcat();
 
 }
 
