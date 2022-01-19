@@ -1,20 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/13 12:43:49 by aalmela-          #+#    #+#             */
+/*   Updated: 2022/01/17 09:44:43 by aalmela-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_isupper(int c)
-{
-	if (c > 64 && c < 91)
-		return (1);
-	return (0);
-}
-
-int ft_islower(int c)
+static int	ft_islower(int c)
 {
 	if (c > 96 && c < 123)
 		return (1);
 	return (0);
 }
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (ft_isalpha(c))
 	{	
@@ -23,6 +28,5 @@ int ft_toupper(int c)
 		return (c);
 	}
 	else
-		return (-1);
+		return (c);
 }
-

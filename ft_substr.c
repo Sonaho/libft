@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 11:23:33 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/18 14:25:52 by aalmela-         ###   ########.fr       */
+/*   Created: 2022/01/17 12:07:04 by aalmela-          #+#    #+#             */
+/*   Updated: 2022/01/18 13:57:15 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (!dst && !src)
-		return (NULL);
-	if (dst < src)
-	{	
-		ft_memcpy(dst, src, n);
-	}
+	char			*ret;
+	unsigned int	i;
+	unsigned int	j;
+
+	if (ft_strlen(s) < (int)len)
+		ret = (char *)malloc(ft_strlen(s) + 1);
+	else if (ft_strlen(s) < (int)start)
+		ret = (char *)malloc(1);
 	else
+		ret = (char *)malloc(len + 1);
+	if (ret == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		while (n--)
+		if (i >= start && j < len)
 		{
-			((char *)dst)[n] = ((char *)src)[n];
+			ret[j] = s[i];
+			j ++;
 		}
+		i ++;
 	}
-	return (dst);
+	ret[j] = '\0';
+	return (ret);
 }

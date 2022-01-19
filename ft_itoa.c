@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 10:16:46 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/13 12:42:53 by aalmela-         ###   ########.fr       */
+/*   Created: 2022/01/19 15:23:03 by aalmela-          #+#    #+#             */
+/*   Updated: 2022/01/19 16:31:54 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_itoa(int n)
 {
-	while ((*s1 != '\0' || *s2 != '\0') && (n > 0))
+	char	*ret;
+	char	*tmp;
+	int		mod;
+	int		i;
+
+	i = 1;
+	mod = 0;
+	tmp = (char)malloc(i);
+	while (n > 0)
 	{
-		if (*s1 > *s2)
-			break ;
-		if (*s1 < *s2)
-			break ;
-		s1++;
-		s2++;
-		n--;
+		mod = n % 10;
+		n = n / 10;
+		tmp[0] = mod + 48;
+		break ;
 	}
-	if (n == 0)
-		return (0);
-	else
-		return (*s1 - *s2);
+	return (tmp);
 }

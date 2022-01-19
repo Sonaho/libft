@@ -1,18 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/13 11:20:03 by aalmela-          #+#    #+#             */
+/*   Updated: 2022/01/18 13:46:26 by aalmela-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memcpy(void *dest, void *src, unsigned int n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned int i;
+	size_t	i;
 
 	i = 0;
-
-	if (dest == src)
-		return (dest);
-
+	if (dst == src)
+		return (dst);
 	while (i < n)
 	{
-		*((char *)dest + i) = *((char *)src + i);
+		*((char *)dst + i) = *((char *)src + i);
 		i ++;
 	}
-	return (dest);
+	return (dst);
 }
