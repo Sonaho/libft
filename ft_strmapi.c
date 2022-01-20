@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 14:41:06 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/20 15:28:52 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:57:54 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	unsigned int	len;
 
+	if (!s)
+		return (NULL);
 	len = (unsigned int)ft_strlen(s);
 	i = 0;
 	ret = (char *)malloc(len +1);
