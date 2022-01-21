@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:55:53 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/18 15:04:58 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:50:31 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*ft_valstr(char const *s1, char const *set)
 {
-	int		i;
+	size_t	i;
 	int		j;
 	char	*r;
 	int		remove;
@@ -68,18 +68,24 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*r;
 	char	*f;
-	int		size;
+	size_t	size;
 
 	size = ft_strlen(set);
 	if (size > ft_strlen(s1))
 	{
 		r = (char *)malloc(size + 1);
+		if (r == NULL)
+			return (NULL);
 		ft_strlcpy(r, s1, ft_strlen(s1) + 1);
 	}
 	else
 	{
 		f = ft_valstr(s1, set);
+		if (!f)
+			return (NULL);
 		r = ft_valrstr(f, set);
+		if (!r)
+			return (NULL);
 		free(f);
 	}
 	return (r);

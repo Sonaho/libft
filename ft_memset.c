@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 12:39:12 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/18 13:46:45 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/01/21 10:57:45 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	while (n > 0)
+	unsigned char	*i;
+
+	if (n > 0)
 	{
-		*(unsigned char *)s = c;
-		s ++;
-		n --;
+		i = s;
+		while (n > 0)
+		{
+			*i = c;
+			i ++;
+			n --;
+		}
 	}
 	return (s);
 }

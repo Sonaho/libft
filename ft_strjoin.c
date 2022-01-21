@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:33:05 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/18 14:47:58 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:36:19 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	size1 = ft_strlen(s1);
 	size2 = ft_strlen(s2);
-	r = (char *)malloc(size1 + size2);
+	r = (char *)malloc(size1 + size2 +1);
 	if (r == NULL)
 		return (NULL);
 	i = 0;

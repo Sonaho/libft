@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 15:23:03 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/01/20 14:22:49 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/01/21 11:05:46 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	*ft_casezero(void)
 	char	*ret;
 
 	ret = (char *)malloc(2);
+	if (ret == NULL)
+		return (NULL);
 	ret[0] = 48;
 	ret[1] = 0;
 	return (ret);
@@ -77,10 +79,10 @@ char	*ft_itoa(int n)
 			sign = 1;
 			n *= -1;
 		}
-		cnt = ft_countnum(n);
-		if (sign)
-			cnt++;
-		ret = (char *)malloc(cnt);
+		cnt = ft_countnum(n) + sign;
+		ret = (char *)malloc(cnt + 1);
+		if (ret == NULL)
+			return (NULL);
 		ft_createstr(ret, (unsigned int)n, sign, cnt);
 	}
 	return (ret);
