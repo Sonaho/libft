@@ -13,7 +13,7 @@ CFLAGS	= -Wall -Werror -Wextra
 
 RM 		= rm -f
 
-AR		= ar rc 
+AR		= ar rc
 
 CC		= gcc
 
@@ -32,4 +32,3 @@ bonus:		${OBJS} ${B_OBJS}
 			${AR} ${NAME} ${OBJS} ${B_OBJS}
 
 re:			fclean ${NAME}
-			
