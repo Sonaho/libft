@@ -11,39 +11,21 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-typedef struct s_split
+static size_t ft_wordlen(const char *s, char c)
 {
-	int		pos;
-	int		wc;
-}	t_split;
+	size_t	size;
+	size_t	i;
 
-static void	ft_wc(char const *s, char c, t_split *sp)
-{
-	int	i;
-	int	cnt;
-	int	wc;
-
+	size = 0;
 	i = 0;
-	cnt = 0;
-	wc = 0;
-	while (s[i])
+	while (s[i] && s[i] != c)
 	{
-		if (s[i] == c && i > 0 && s[i - 1] != c)
-		{
-			sp[cnt].pos = i - wc;
-			sp[cnt].wc = wc;
-			wc = 0;
-			cnt ++;
-		}
-		else
-			wc ++;
-		if ((s[i -1] == c && s[i] == c) || (i == 0 && s[i] == c))
-			wc --;
+		size ++;
 		i ++;
 	}
-	sp[cnt].pos = i - wc;
-	sp[cnt].wc = wc;
+	return (size);
 }
 
 static int	ft_countchars(char const *s, char c)
@@ -71,26 +53,34 @@ static int	ft_countchars(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	int		i;
+	int		j;
+	int		y;
 	int		cnt;
 	char	**split;
-	t_split	*sp;
 
 	cnt = ft_countchars(s, c);
-	sp = malloc(sizeof(t_split) * cnt);
-	if (sp == NULL)
-		return (NULL);
-	ft_wc(s, c, sp);
-	split = (char **)malloc(sizeof(char *) * (cnt + 1));
+	printf("\nTamaño countchar %d \n",cnt);
+	split = (char **)ft_calloc(cnt + 1, sizeof(char *));
 	if (split == NULL)
 		return (NULL);
 	i = 0;
-	split[cnt] = 0;
+	j = 0;
+	y = 0;
 	while (cnt > 0)
 	{
-		split[i] = ft_substr(s, sp[i].pos, sp[i].wc);
-		i ++;
+		while (s[i] == c)
+			i ++;
+		if (s[i])
+		{
+			split[j] = (char *)ft_calloc(ft_wordlen(s + i, c) + 1, sizeof(char));
+			if (!split[j])
+				return (NULL);
+			while (s[i] && s[i] != c)
+				split[j][y++] = s[i++];
+			j ++;
+		}
 		cnt --;
 	}
-	free(sp);
+	split[j] = 0;
 	return (split);
 }

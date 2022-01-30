@@ -25,7 +25,7 @@ static char	*ft_valstr(char const *s1, char const *set)
 		j = 0;
 		remove = 0;
 		while (set[j])
-		{	
+		{
 			if (s1[i] == set[j])
 				remove ++;
 			j ++;

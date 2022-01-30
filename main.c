@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
-
+/*
 void test_one(char c)
 {
 	if (ft_isalpha(c))
@@ -16,7 +16,6 @@ void test_two(char c)
 		printf("El carácter %c es alphanum \n", c);
 	else if (ft_isascii(c))
 		printf("El carácter %c es ascii \n", c);
-	
 }
 
 void test_three(char c)
@@ -92,17 +91,16 @@ void test_strncmp()
 	} else {
 		printf("str1 is equal to str2");
 	}
-   
+
 	printf("\nValue returned by strncmp() is: %d \n" , ret);
 }
 void test_memset()
 {
 	char str[50] = "42Barcelona es la respuesta a toda pregunta Geek";
     printf("Antes memset(): %s\n", str);
-  
+
     // Fill 8 characters starting from str[13] with '.'
     //ft_memset(str + 13, '.', 51*sizeof(char));
-  
     //printf("Después memset():  %s \n", str);
 
     bzero(str, 10);
@@ -113,11 +111,11 @@ void test_memset()
 void test_memchr()
 {
    char cadena[] = "Erase una vez...";
-   char *puntero; 
- 
+   char *puntero;
+
    puntero = (char *)ft_memchr( cadena, '.', 10 );
-   printf( "%s\n", cadena); 
-   printf( "%s\n", puntero ); 	
+   printf( "%s\n", cadena);
+   printf( "%s\n", puntero );
 }
 void test_memcpy()
 {
@@ -139,11 +137,11 @@ void test_memcmp()
 
    ret = ft_memcmp(str1, str2, 5);
 
-   if(ret > 0) 
+   if(ret > 0)
       printf("str2 is less than str1: %d \n", ret);
-   else if(ret < 0) 
+   else if(ret < 0)
       printf("str1 is less than str2: %d \n", ret);
-   else 
+   else
       printf("str1 is equal to str2: %d \n", ret);
 }
 void test_memmove()
@@ -158,7 +156,6 @@ void test_memmove()
 	printf("After memmove dest = %s, src = %s\n", dest, src);
 	ft_memmove(det, src, x);
 	printf("After ft_memmove dest = %s, src = %s\n", det, src);
-	
 }
 
 void test_strnstr()
@@ -186,8 +183,8 @@ void test_strlcpy()
 	ret = strlcpy(dest1, src, size);
 	ret = ft_strlcpy(dest2, src, size);
 
-	printf("Cadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest1, size, ret);	
-	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret);	
+	printf("Cadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest1, size, ret);
+	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret);
 
 }
 void test_strlcat()
@@ -202,10 +199,11 @@ void test_strlcat()
 	//ret = strlcat(dest1, src, size);
 	ret2 = ft_strlcat(dest2, src, size);
 
-	//printf("Cadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest1, size, ret);	
-	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret2);	
+	//printf("Cadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest1, size, ret);
+	printf("FT____\nCadena original: %s \nCadena copiada: %s \nBytes copiados: %zu \nBytes a copiar: %zu \n", src, dest2, size, ret2);
 
 }
+*/
 int main()
 {
 	/*printf("Test de ft_isalpha \n");
@@ -214,17 +212,16 @@ int main()
 	int i = 0;
 
 	while (c[i] != '\0')
-	{	
-		
+	{
 		test_one(c[i]);
 		test_two(c[i]);
 		test_three(c[i]);
 		test_four(c);
-		
+
 		i++;
 	}
 	test_toupper();
-	test_tolower(); 
+	test_tolower();
 	test_strchr();
 	test_strrchr();*/
 	//test_memset();
@@ -235,7 +232,22 @@ int main()
 	//test_memmove();
 	//test_strlcpy();
 	//test_strnstr();
-	test_strlcat();
+	//test_strlcat();
+	char **tab = ft_split("..tripouille..42..43", '.');
+	int i = 0;
 
+	while (tab[i])
+		i++;
+	printf("\nCadena original\n\n..trip..ouille..42..43\n\n");
+	printf("Tamaño split %d = 3 \n",i + 1);
+	printf("Posicion 0 %s == tripouille \n", tab[0]);
+	printf("Posicion 1 %s == 42 \n", tab[1]);
+	printf("Posicion 2 %s == 43 \n", tab[2]);
+	printf("Posicion 3 %s == NULL \n", tab[3]);
+	i = 0;
+	while (tab[i++])
+		free(tab[i]);
+	free(tab);
+	printf("Posicion 0 %s \n", tab[0]);
 }
 
